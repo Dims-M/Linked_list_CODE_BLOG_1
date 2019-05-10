@@ -22,11 +22,12 @@ namespace Linked_list_CODE_BLOG.Model
 
             set
             {
-                if (value !=null) //проверка на заполненность
-                {
-                    data = value;
-                }
-               
+                data = value ?? throw new ArgumentNullException(nameof(value));
+                //if (value !=null) //проверка на заполненность
+                //{
+                //    data = value;
+                //}
+
             }
         }
 
