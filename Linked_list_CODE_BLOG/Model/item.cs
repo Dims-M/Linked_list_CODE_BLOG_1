@@ -6,7 +6,7 @@ using System.Threading.Tasks;
 
 namespace Linked_list_CODE_BLOG.Model
 {
-   public class Item<T>
+    public class Item<T>
     {
 
         private T data = default(T); // присваеваем значения по умолнанию. В зависитмости от типа
@@ -14,33 +14,43 @@ namespace Linked_list_CODE_BLOG.Model
         private Item<T> next = null;
 
         /// <summary>
-        /// Свойства класса Item<T>
+        /// Свойства класса Data(ДАННЫЕ)<T>
         /// </summary>
         public T Data
         {
-            get { return data; }
+            get => data;
 
             set
             {
-                data = value ?? throw new ArgumentNullException(nameof(value));
-                //if (value !=null) //проверка на заполненность
-                //{
-                //    data = value;
-                //}
+                if (value != null)//проверка на заполненность
+                    data = value;
 
+                else
+                {
+                    throw new ArgumentNullException(nameof(value));
+                }
             }
         }
 
         /// <summary>
-        /// Автосвойство переменной next Класса Item<T>
+        /// Свойство указателя на следущий элемент
         /// </summary>
         public Item<T> Next { get; set; }
-        
+
         //Конструктор
         public Item(T data)
         {
             Data = data;
         }
-        
+
+        /// <summary>
+        /// Переобпределенный метод ToString
+        /// </summary>
+        /// <returns>Возращае текущие данные</returns>
+        public override string ToString()
+        {
+            return Data.ToString();
+        }
+
     }
 }
