@@ -6,6 +6,10 @@ using System.Threading.Tasks;
 
 namespace Linked_list_CODE_BLOG.Model
 {
+    /// <summary>
+    /// Универсальный элемент для Linked_list
+    /// </summary>
+    /// <typeparam name="T"></typeparam>
     public class Item<T>
     {
 

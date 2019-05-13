@@ -16,7 +16,7 @@ namespace Linked_list_CODE_BLOG.Model
         /// </summary>
         public Item<T> Head { get; private set; }
         /// <summary>
-        /// Конечный элемент Linked list
+        /// Конечный(Поседний) элемент списка Linked list. НЕ указатель
         /// </summary>
         public Item<T> Tail { get; private set; }
 
@@ -30,6 +30,7 @@ namespace Linked_list_CODE_BLOG.Model
         {
             Head = null;
             Tail = null;
+            Count++;
         }
     
         public LinkedList(T data )
@@ -37,12 +38,11 @@ namespace Linked_list_CODE_BLOG.Model
             //При создании обекта с параметрами
             var item = new Item<T>(data);
 
-            SetHeadAndTail(data);
+            SetHeadAndTail(item);
 
         }
 
         // методы
-
       /// <summary>
       /// Метод добавить в список элемент
       /// </summary>
@@ -62,15 +62,30 @@ namespace Linked_list_CODE_BLOG.Model
 
             else
             {
+                SetHeadAndTail(item);
+            }
+        }
 
+        public void Delete(T data)
+        {
+            if (Head !=null) // если список не пустой
+            {
+                var current = Head;
+                while (current.Next !=null) // цикл работает пока не кончатся значения списка
+                {
+                    if (current.Equals(data)) // прверяем есть в списке нужный нам обьект
+                    {
+
+                    }
+                }
             }
         }
 
         /// <summary>
-        /// Метод инизализатор значений
+        /// Метод инизализатор значений. По умолчанию Добавление указателей и увеличение Count
         /// </summary>
         /// <param name="item"></param>
-        private void SetHeadAndTail(Item <T> item)
+        private void SetHeadAndTail(Item<T> item)
         {
             Head = item;
             Tail = item;
