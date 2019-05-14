@@ -9,7 +9,7 @@ namespace Linked_list_CODE_BLOG.Model
     /// <summary>
     /// Сомодельный типизированый динамичнский Linked list
     /// </summary>
-    public class LinkedList<T> 
+    public class LinkedList<T>
     {
         /// <summary>
         /// головной элемент Linked list
@@ -32,9 +32,9 @@ namespace Linked_list_CODE_BLOG.Model
             Tail = null;
             Count++;
         }
-    
-        public LinkedList(T data )
-        { 
+
+        public LinkedList(T data)
+        {
             //При создании обекта с параметрами
             var item = new Item<T>(data);
 
@@ -43,11 +43,11 @@ namespace Linked_list_CODE_BLOG.Model
         }
 
         // методы
-      /// <summary>
-      /// Метод добавить в список элемент
-      /// </summary>
-      /// <param name="data"></param>
-       public void Add(T data)
+        /// <summary>
+        /// Метод добавить в список элемент
+        /// </summary>
+        /// <param name="data"></param>
+        public void Add(T data)
         {
             var item = new Item<T>(data);
 
@@ -68,17 +68,35 @@ namespace Linked_list_CODE_BLOG.Model
 
         public void Delete(T data)
         {
-            if (Head !=null) // если список не пустой
+            if (Head != null) // если список не пустой
             {
-                var current = Head;
-                while (current.Next !=null) // цикл работает пока не кончатся значения списка
-                {
-                    if (current.Equals(data)) // прверяем есть в списке нужный нам обьект
-                    {
 
-                    }
+                if (Head.Data.Equals(data)) //если первое значение содержитсяв первом элементе
+                {
+                    Head = Head.Next; // Переприсваиваем в текущие значение из следущей переменно 
+                    Count--; // уменьшаем счетчик количество обьектов листа
+                    return;
                 }
+
+
+
+            var current = Head.Next; //содержимое списка из следущего элемента. Так как самый первый мы уже проверили
+            var previous = Head;  //Предыдущий указатель на следущий элемент
+
+            while (current != null) // цикл работает пока не кончатся значения списка
+            {
+                if (current.Equals(data)) // прверяем есть в списке нужный нам обьект
+                {
+                        previous.Next = current.Next;
+                        Count--;
+                }
+
+                    previous = current;
+                    current = current.Next;
+
             }
+          }
+              
         }
 
         /// <summary>

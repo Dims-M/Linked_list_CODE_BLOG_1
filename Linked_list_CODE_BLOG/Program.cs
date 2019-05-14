@@ -27,8 +27,11 @@ namespace Linked_list_CODE_BLOG
             list.Add(20);
             list.Add(30);
             list.Add(40);
+            list.Add(50);
+            list.Add(60);
+            list.Add(60);
 
-
+            list.Delete(3); // удаление по идексу
             Console.ReadKey();
         }
 
