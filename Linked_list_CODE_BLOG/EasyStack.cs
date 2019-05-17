@@ -18,6 +18,8 @@ namespace Linked_list_CODE_BLOG
 
         public int Count => items.Count; // получаем количество элементов
 
+        public bool IsEmpty { get; set; }
+
         /// <summary>
         /// ДОбвить в стек
         /// </summary>
@@ -28,7 +30,7 @@ namespace Linked_list_CODE_BLOG
         }
 
         /// <summary>
-        /// Получить последний добавленный элемент
+        /// Получить последний добавленный элемент и удаляем его из колекции стека
         /// </summary>
         /// <param name="item"></param>
         public T Pop()
@@ -49,6 +51,29 @@ namespace Linked_list_CODE_BLOG
             }
         }
 
+        /// <summary>
+        /// Получаем первый элемент
+        /// </summary>
+        /// <returns></returns>
+        public T Peek()
+        {
+            if (Count > 0)
+            {
+                return items.LastOrDefault();
+            }
+
+            else
+            {
+                //Выводим ощибку
+                throw new ArgumentNullException("Стек пустой");
+            }
+        }
+
+
+        public override string ToString()
+        {
+            return $"Стек с {Count} элементами";
+        }
 
     }
 }

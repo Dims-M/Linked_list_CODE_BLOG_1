@@ -12,7 +12,8 @@ namespace Linked_list_CODE_BLOG
     {
         static void Main(string[] args)
         {
-            ZapustList();
+            ZapustList();//РАбота с листом
+            ZapuskCtack(); //Работа со Стеком
         }
 
         /// <summary>
@@ -35,6 +36,21 @@ namespace Linked_list_CODE_BLOG
             Console.ReadKey();
         }
 
+
+        static private void ZapuskCtack()
+        {
+            EasyStack<int> easyStack = new EasyStack<int>();
+
+           Console.WriteLine( easyStack.ToString());
+           // easyStack.Peek();
+            easyStack.Push(123);
+            easyStack.Push(500);
+            easyStack.Push(1000);
+            Console.WriteLine(easyStack.ToString());
+
+            Console.ReadKey();
+
+        }
 
        
     }
